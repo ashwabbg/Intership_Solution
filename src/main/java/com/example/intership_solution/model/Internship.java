@@ -2,7 +2,6 @@ package com.example.intership_solution.model;
 
 import jakarta.persistence.*;
 
-import java.time.DateTimeException;
 import java.util.Date;
 
 @Entity
@@ -15,6 +14,10 @@ public class Internship {
     private String title;
 
     private Date date;
+
+    @ManyToOne
+    @JoinColumn(name = "student_id")
+    private Student student;
 
     public int getInternship_id() {
         return internship_id;
