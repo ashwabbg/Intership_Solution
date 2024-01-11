@@ -22,4 +22,9 @@ public class InternshipServiceImplementation implements InternshipService {
     public List<Internship> getAllInternships() {
         return internshipRepository.findAll();
     }
+
+    @Override
+    public void removeInternship(Internship internship) {
+        internshipRepository.delete(internship);
+    }
 }

@@ -81,5 +81,22 @@ public class Student extends User{
         public void clear() {
 
         }
+
     };
+
+    public String getPromotion() {
+        return promotion;
+    }
+
+    public void setPromotion(String promotion) {
+        this.promotion = promotion;
+    }
+
+    public Set<Internship> getInternships() {
+        return internships;
+    }
+
+    public void setInternships(Set<Internship> internships) {
+        this.internships = internships;
+    }
 }

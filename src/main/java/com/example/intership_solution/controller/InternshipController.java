@@ -25,4 +25,9 @@ public class InternshipController {
     public List<Internship> getAllInternships() {
         return internshipService.getAllInternships();
     }
+
+    @GetMapping("/remove")
+    public void remove(@RequestBody Internship internship){
+        internshipService.removeInternship(internship);
+    }
 }

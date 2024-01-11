@@ -6,4 +6,5 @@ import java.util.List;
 public interface InternshipService {
     public Internship saveInternship(Internship internship);
     public List<Internship> getAllInternships();
+    public void removeInternship(Internship internship);
 }

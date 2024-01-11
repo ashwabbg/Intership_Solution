@@ -24,4 +24,9 @@ public class StudentController {
     public List<Student> getAllStudents() {
         return studentService.getAllStudents();
     }
+
+    @GetMapping("/removeInternship")
+    public void removeInternshipFromStudent(){
+
+    }
 }
