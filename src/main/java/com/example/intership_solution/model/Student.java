@@ -8,14 +8,12 @@ import java.util.Set;
 
 @Entity
 public class Student extends User{
-
-    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int student_id;
 
     private String promotion;
 
-    @OneToMany(mappedBy = "Student")
+    @OneToMany(mappedBy = "student")
     private Set<Internship> internships = new Set<Internship>() {
         @Override
         public int size() {

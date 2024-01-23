@@ -5,7 +5,6 @@ import jakarta.persistence.*;
 @Entity
 public class Report extends Document{
 
-    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int report_Id;
 

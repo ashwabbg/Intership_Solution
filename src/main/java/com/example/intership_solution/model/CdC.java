@@ -5,23 +5,11 @@ import jakarta.persistence.*;
 @Entity
 public class CdC extends Document{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int CdC_Id;
-
     //File model:
     private String fileName;
     private String fileType;
     @Lob
     private byte[] data;
-
-    public int getCdC_Id() {
-        return CdC_Id;
-    }
-
-    public void setCdC_Id(int cdC_Id) {
-        CdC_Id = cdC_Id;
-    }
 
     public String getFileName() {
         return fileName;

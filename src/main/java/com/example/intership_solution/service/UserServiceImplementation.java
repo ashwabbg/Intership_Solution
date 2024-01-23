@@ -20,4 +20,18 @@ public class UserServiceImplementation implements UserService{
 
     @Override
     public List<User> getAllUser(){return userRepository.findAll();}
+
+    @Override
+    public User loginUser(String password, String username) {
+        String[] parts = username.split("_");
+        List<User> userList = userRepository.findByPasswordAndFirstnameAndLastname(password, parts[0], parts[1]);
+
+        if(userList != null){
+            return userList.get(0);
+        }else{
+            return null;
+        }
+
+    }
+
 }

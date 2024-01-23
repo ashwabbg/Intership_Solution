@@ -23,7 +23,7 @@ public class Internship {
     @JoinColumn(name = "student_id")
     private Student student;
 
-    @OneToMany
+    @OneToMany(mappedBy = "internship")
     private Set<Document> documentSet = new Set<Document>() {
         @Override
         public int size() {
