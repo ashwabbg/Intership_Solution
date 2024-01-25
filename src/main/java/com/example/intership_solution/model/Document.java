@@ -1,5 +1,6 @@
 package com.example.intership_solution.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -17,6 +18,7 @@ public class Document {
 
     @ManyToOne
     @JoinColumn(name = "internship_id")
+    @JsonBackReference
     private Internship internship;
 
     public int getDocument_id() {

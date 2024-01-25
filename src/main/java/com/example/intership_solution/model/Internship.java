@@ -1,5 +1,6 @@
 package com.example.intership_solution.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.time.DateTimeException;
@@ -24,6 +25,7 @@ public class Internship {
     private Student student;
 
     @OneToMany(mappedBy = "internship")
+    @JsonManagedReference
     private Set<Document> documentSet = new Set<Document>() {
         @Override
         public int size() {
