@@ -2,13 +2,15 @@ package com.example.intership_solution.model;
 
 import jakarta.persistence.*;
 
+import static jakarta.persistence.FetchType.LAZY;
+
 @Entity
 public class CdC extends Document{
 
     //File model:
     private String fileName;
     private String fileType;
-    @Lob
+    @Lob @Basic(fetch=LAZY)
     private byte[] data;
 
     public String getFileName() {

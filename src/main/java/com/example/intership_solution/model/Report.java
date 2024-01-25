@@ -2,6 +2,8 @@ package com.example.intership_solution.model;
 
 import jakarta.persistence.*;
 
+import static jakarta.persistence.FetchType.LAZY;
+
 @Entity
 public class Report extends Document{
 
@@ -11,7 +13,7 @@ public class Report extends Document{
     //File model:
     private String fileName;
     private String fileType;
-    @Lob
+    @Lob @Basic(fetch=LAZY)
     private byte[] data;
 
     public int getReport_Id() {
