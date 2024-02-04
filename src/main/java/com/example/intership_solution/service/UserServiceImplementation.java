@@ -26,7 +26,7 @@ public class UserServiceImplementation implements UserService{
         String[] parts = username.split("_");
         List<User> userList = userRepository.findByPasswordAndFirstnameAndLastname(password, parts[0], parts[1]);
 
-        if(userList != null){
+        if(!userList.isEmpty()){
             return userList.get(0);
         }else{
             return null;

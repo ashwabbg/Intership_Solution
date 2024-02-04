@@ -10,8 +10,8 @@ public class CdC extends Document{
     //File model:
     private String fileName;
     private String fileType;
-    @Lob @Basic(fetch=LAZY)
-    private byte[] data;
+    //@Lob @Basic(fetch=LAZY)
+    //private byte[] data;
 
     public String getFileName() {
         return fileName;
@@ -29,11 +29,11 @@ public class CdC extends Document{
         this.fileType = fileType;
     }
 
-    public byte[] getData() {
-        return data;
-    }
-
-    public void setData(byte[] data) {
-        this.data = data;
-    }
+//    public byte[] getData() {
+//        return data;
+//    }
+//
+//    public void setData(byte[] data) {
+//        this.data = data;
+//    }
 }

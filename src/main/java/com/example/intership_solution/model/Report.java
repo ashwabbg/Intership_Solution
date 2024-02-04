@@ -13,8 +13,8 @@ public class Report extends Document{
     //File model:
     private String fileName;
     private String fileType;
-    @Lob @Basic(fetch=LAZY)
-    private byte[] data;
+    //@Lob @Basic(fetch=LAZY)
+    //private byte[] data;
 
     public int getReport_Id() {
         return report_Id;
@@ -40,11 +40,11 @@ public class Report extends Document{
         this.fileType = fileType;
     }
 
-    public byte[] getData() {
-        return data;
-    }
-
-    public void setData(byte[] data) {
-        this.data = data;
-    }
+//    public byte[] getData() {
+//        return data;
+//    }
+//
+//    public void setData(byte[] data) {
+//        this.data = data;
+//    }
 }
