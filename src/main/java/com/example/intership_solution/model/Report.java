@@ -13,11 +13,25 @@ public class Report extends Document{
     //File model:
     private String fileName;
     private String fileType;
-    //@Lob @Basic(fetch=LAZY)
-    //private byte[] data;
+    @Lob
+    private byte[] data;
+
+    public Report() {
+
+    }
+
+    public Report(String fileName, String fileType, byte[] data) {
+        this.fileName = fileName;
+        this.fileType = fileType;
+        this.data = data;
+    }
 
     public int getReport_Id() {
         return report_Id;
+    }
+
+    public String getStringReport_Id() {
+        return String.valueOf(report_Id);
     }
 
     public void setReport_Id(int report_Id) {
@@ -40,11 +54,11 @@ public class Report extends Document{
         this.fileType = fileType;
     }
 
-//    public byte[] getData() {
-//        return data;
-//    }
-//
-//    public void setData(byte[] data) {
-//        this.data = data;
-//    }
+    public byte[] getData() {
+        return data;
+    }
+
+    public void setData(byte[] data) {
+        this.data = data;
+    }
 }

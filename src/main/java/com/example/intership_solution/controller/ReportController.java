@@ -1,15 +1,20 @@
 package com.example.intership_solution.controller;
 
+import com.example.intership_solution.message.ResponseFile;
+import com.example.intership_solution.message.ResponseMessage;
 import com.example.intership_solution.model.Report;
 import com.example.intership_solution.service.ReportService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.io.File;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @CrossOrigin
@@ -20,19 +25,44 @@ public class ReportController {
     private ReportService reportService;
 
     @PostMapping("/upload")
-    public ResponseEntity<?> handleFileUpload(@RequestParam("file") MultipartFile file ) {
-
-        String fileName = file.getOriginalFilename();
+    public ResponseEntity<ResponseMessage> uploadFile(@RequestParam("file") MultipartFile file) {
+        String message = "";
         try {
-            file.transferTo( new File("C:\\upload\\" + fileName));
+            reportService.saveReport(file);
+
+            message = "Uploaded the file successfully: " + file.getOriginalFilename();
+            return ResponseEntity.status(HttpStatus.OK).body(new ResponseMessage(message));
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+            message = "Could not upload the file: " + file.getOriginalFilename() + "!";
+            return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(new ResponseMessage(message));
         }
-        return ResponseEntity.ok("File uploaded successfully.");
     }
 
-    @GetMapping("/getAll")
-    public List<Report> getAllReports() {
-        return reportService.getAllReports();
+    @GetMapping("/files")
+    public ResponseEntity<List<ResponseFile>> getListFiles() {
+        List<ResponseFile> files = reportService.getAllReports().map(dbFile -> {
+            String fileDownloadUri = ServletUriComponentsBuilder
+                    .fromCurrentContextPath()
+                    .path("/files/")
+                    .path(dbFile.getStringReport_Id())
+                    .toUriString();
+
+            return new ResponseFile(
+                    dbFile.getFileName(),
+                    fileDownloadUri,
+                    dbFile.getFileType(),
+                    dbFile.getData().length);
+        }).collect(Collectors.toList());
+
+        return ResponseEntity.status(HttpStatus.OK).body(files);
+    }
+
+    @GetMapping("/files/{id}")
+    public ResponseEntity<byte[]> getFile(@PathVariable String id) {
+        Report report = reportService.getReport(id);
+
+        return ResponseEntity.ok()
+                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + report.getFileName() + "\"")
+                .body(report.getData());
     }
 }

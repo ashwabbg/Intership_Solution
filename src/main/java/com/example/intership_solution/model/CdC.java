@@ -7,11 +7,34 @@ import static jakarta.persistence.FetchType.LAZY;
 @Entity
 public class CdC extends Document{
 
-    //File model:
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int cdc_Id;
     private String fileName;
     private String fileType;
-    //@Lob @Basic(fetch=LAZY)
-    //private byte[] data;
+    @Lob
+    private byte[] data;
+
+    public CdC() {
+
+    }
+
+    public CdC(String fileName, String fileType, byte[] data) {
+        this.fileName = fileName;
+        this.fileType = fileType;
+        this.data = data;
+    }
+
+    public int getCdc_Id() {
+        return cdc_Id;
+    }
+
+    public String getStringCdc_Id() {
+        return String.valueOf(cdc_Id);
+    }
+
+    public void setCdc_Id(int cdc_Id) {
+        this.cdc_Id = cdc_Id;
+    }
 
     public String getFileName() {
         return fileName;
@@ -29,11 +52,11 @@ public class CdC extends Document{
         this.fileType = fileType;
     }
 
-//    public byte[] getData() {
-//        return data;
-//    }
-//
-//    public void setData(byte[] data) {
-//        this.data = data;
-//    }
+    public byte[] getData() {
+        return data;
+    }
+
+    public void setData(byte[] data) {
+        this.data = data;
+    }
 }
