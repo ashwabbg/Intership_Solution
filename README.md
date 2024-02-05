@@ -14,7 +14,7 @@
    DB_DRIVER=Your relational database manager driver (e.g., org.postgresql.Driver for PostgreSQL or com.mysql.cj.jdbc.Driver for MySQL)
 
    
-2. **Launch Clean Install via Gradle\::**
+2. **Launch Clean Install via Gradle\:**
 
    Run the following command to perform a clean install:
 
@@ -23,7 +23,7 @@
 
 ### Database:
 
-1. **Apply Database Script\::**
+1. **Apply Database Script\:**
 
    Depending on your relational database manager, apply the script found in the `rapport.zip` file.
 
@@ -31,25 +31,25 @@
   
 ### Frontend:
 
-1. **Configure API Endpoint\::**
+1. **Configure API Endpoint\:**
 
    Search for all instances of `http://localhost:` in the frontend project and replace the port with the one you set up in the `env.properties` file.
 
-2. **Install Dependencies\::**
+2. **Install Dependencies\:**
 
    Run the following command to install frontend dependencies:
 
    ```bash
    npm install```
 
-3. **Start the WebApp\::**
+3. **Start the WebApp\:**
 
    Run the following command to run the server for the webapp:
 
    ```bash
    npm start```
 
-4. **Accessing the WebApp\::**
+4. **Accessing the WebApp\:**
 
    Check the url provided by React in the terminal and paste it in the search bar of your browser (should be `http://localhost:3000`)
 
