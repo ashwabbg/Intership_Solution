@@ -1,6 +1,7 @@
 package com.example.intership_solution.service;
 
 import com.example.intership_solution.model.Document;
+import com.example.intership_solution.model.Internship;
 import com.example.intership_solution.repository.DocumentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,5 +22,10 @@ public class DocumentServiceImplementation implements DocumentService {
     @Override
     public List<Document> getAllDocuments() {
         return documentRepository.findAll();
+    }
+
+    @Override
+    public List<Document> getDocumentByInternship(Integer id) {
+        return documentRepository.findAllByInternship_InternshipId(id);
     }
 }

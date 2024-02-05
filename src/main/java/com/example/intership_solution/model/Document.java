@@ -17,7 +17,7 @@ public class Document {
     private int loc;
 
     @ManyToOne
-    @JoinColumn(name = "internship_id")
+    @JoinColumn(name = "internshipId")
     @JsonBackReference
     private Internship internship;
 

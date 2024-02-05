@@ -7,7 +7,7 @@ import static jakarta.persistence.FetchType.LAZY;
 @Entity
 public class CdC extends Document{
 
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int cdc_Id;
     private String fileName;
     private String fileType;

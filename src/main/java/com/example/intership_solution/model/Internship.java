@@ -14,7 +14,7 @@ public class Internship {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private int internship_id;
+    private int internshipId;
 
     private String title;
 
@@ -97,12 +97,12 @@ public class Internship {
 
     }
 
-    public int getInternship_id() {
-        return internship_id;
+    public int getinternshipId() {
+        return internshipId;
     }
 
-    public void setInternship_id(int internship_id) {
-        this.internship_id = internship_id;
+    public void setinternshipId(int internshipId) {
+        this.internshipId = internshipId;
     }
 
     public String getTitle() {

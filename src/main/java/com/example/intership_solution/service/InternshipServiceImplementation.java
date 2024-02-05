@@ -41,4 +41,10 @@ public class InternshipServiceImplementation implements InternshipService {
         internshipToDelete.ifPresent(internship -> internshipRepository.delete(internship));
 
     }
+
+    @Override
+    public Internship getInternshipByID(int id) {
+        return internshipRepository.findById(id).orElse(null);
+    }
+
 }

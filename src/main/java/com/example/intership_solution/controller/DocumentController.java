@@ -1,7 +1,9 @@
 package com.example.intership_solution.controller;
 
 import com.example.intership_solution.model.Document;
+import com.example.intership_solution.model.Internship;
 import com.example.intership_solution.service.DocumentService;
+import com.example.intership_solution.service.InternshipService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,5 +26,10 @@ public class DocumentController {
     @GetMapping("/getAll")
     public List<Document> getAllDocuments() {
         return documentService.getAllDocuments();
+    }
+
+    @GetMapping("/getByInternshipID/{id}")
+    public  List<Document> getDocumentsFromInternshipId(@PathVariable int id){
+        return documentService.getDocumentByInternship(id);
     }
 }
