@@ -24,7 +24,7 @@ public class Internship {
     @JoinColumn(name = "studentId")
     private Student student;
 
-    @OneToMany(mappedBy = "internship")
+    @OneToMany(mappedBy = "internship", cascade = {CascadeType.ALL})
     @JsonManagedReference
     private Set<Document> documentSet = new Set<Document>() {
         @Override

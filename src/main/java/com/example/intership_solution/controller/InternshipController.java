@@ -37,8 +37,8 @@ public class InternshipController {
     @GetMapping("/getAllByStudent/{id}")
     public List<Internship> getAllInternshipsFromStudentID(@PathVariable int id){return  internshipService.getInternshipsByStudentID(id);}
 
-    @GetMapping("/remove")
-    public void remove(@RequestBody Internship internship){
-        internshipService.removeInternship(internship);
+    @GetMapping("/remove/{id}")
+    public void remove(@PathVariable int id){
+        internshipService.removeInternshipById(id);
     }
 }

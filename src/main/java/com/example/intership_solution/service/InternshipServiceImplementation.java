@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class InternshipServiceImplementation implements InternshipService {
@@ -35,7 +36,9 @@ public class InternshipServiceImplementation implements InternshipService {
         }
     }
     @Override
-    public void removeInternship(Internship internship) {
-        internshipRepository.delete(internship);
+    public void removeInternshipById(int id) {
+        Optional<Internship> internshipToDelete = internshipRepository.findById(id);
+        internshipToDelete.ifPresent(internship -> internshipRepository.delete(internship));
+
     }
 }

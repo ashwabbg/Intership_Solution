@@ -38,7 +38,7 @@ public class StudentServiceImplementation implements StudentService{
     @Override
     public void removeInternshipFromStudent(Student student, Internship internship) {
         if(student.getInternships().contains(internship)){
-            internshipService.removeInternship(internship);
+            internshipService.removeInternshipById(internship.getInternship_id());
         }
     }
 }

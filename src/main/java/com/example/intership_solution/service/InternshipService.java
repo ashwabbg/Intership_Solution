@@ -9,5 +9,5 @@ public interface InternshipService {
     public void saveInternship(Internship internship);
     public List<Internship> getAllInternships();
     public List<Internship> getInternshipsByStudentID(int student_id);
-    public void removeInternship(Internship internship);
+    public void removeInternshipById(int id);
 }

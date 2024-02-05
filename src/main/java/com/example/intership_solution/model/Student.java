@@ -13,7 +13,7 @@ public class Student extends User{
 
     private String promotion;
 
-    @OneToMany(mappedBy = "student")
+    @OneToMany(mappedBy = "student", orphanRemoval=true)
     private Set<Internship> internships = new Set<Internship>() {
         @Override
         public int size() {
