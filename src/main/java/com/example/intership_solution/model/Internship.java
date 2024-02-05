@@ -13,7 +13,7 @@ import java.util.Set;
 public class Internship {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int internship_id;
 
     private String title;
@@ -21,7 +21,7 @@ public class Internship {
     private Date date;
 
     @ManyToOne
-    @JoinColumn(name = "student_id")
+    @JoinColumn(name = "studentId")
     private Student student;
 
     @OneToMany(mappedBy = "internship")
@@ -93,6 +93,10 @@ public class Internship {
         }
     };
 
+    public Internship() {
+
+    }
+
     public int getInternship_id() {
         return internship_id;
     }
@@ -119,6 +123,13 @@ public class Internship {
 
     public Set<Document> getDocumentSet() {
         return documentSet;
+    }
+
+    public Internship(String title, Date date, Student student, Set<Document> documentSet) {
+        this.title = title;
+        this.date = date;
+        this.student = student;
+        this.documentSet = documentSet;
     }
 
     public void setDocumentSet(Set<Document> documentSet) {

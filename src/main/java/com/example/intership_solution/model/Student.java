@@ -9,7 +9,7 @@ import java.util.Set;
 @Entity
 public class Student extends User{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int student_id;
+    private int studentId;
 
     private String promotion;
 
