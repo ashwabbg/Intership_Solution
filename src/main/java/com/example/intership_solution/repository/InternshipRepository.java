@@ -9,5 +9,5 @@ import java.util.List;
 
 @Repository
 public interface InternshipRepository extends JpaRepository<Internship, Integer>{
-    List<Internship> findByStudent_StudentId(Integer studentId);
+    List<Internship> findAllByStudent_StudentId(Integer studentId);
 }

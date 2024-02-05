@@ -8,6 +8,6 @@ import java.util.List;
 public interface InternshipService {
     public void saveInternship(Internship internship);
     public List<Internship> getAllInternships();
-    public Internship getInternshipByStudentID(InternshipRequest internshipRequest);
+    public List<Internship> getInternshipsByStudentID(int student_id);
     public void removeInternship(Internship internship);
 }

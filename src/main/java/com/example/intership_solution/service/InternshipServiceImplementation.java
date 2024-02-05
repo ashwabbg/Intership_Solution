@@ -25,16 +25,15 @@ public class InternshipServiceImplementation implements InternshipService {
     }
 
     @Override
-    public Internship getInternshipByStudentID(InternshipRequest internshipRequest) {
-        List<Internship> internships = internshipRepository.findByStudent_StudentId(internshipRequest.getStudentId());
+    public List<Internship> getInternshipsByStudentID(int student_id) {
+        List<Internship> internships = internshipRepository.findAllByStudent_StudentId(student_id);
 
         if(!internships.isEmpty()){
-            return internships.get(0);
+            return internships;
         }else{
             return null;
         }
     }
-
     @Override
     public void removeInternship(Internship internship) {
         internshipRepository.delete(internship);
