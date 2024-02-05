@@ -25,7 +25,7 @@ public class StudentController {
         return studentService.getAllStudents();
     }
 
-    @GetMapping("/removeInternship")
+    @DeleteMapping("/removeInternship")
     public void removeInternshipFromStudent(){
 
     }
